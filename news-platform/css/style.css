@@ -1,0 +1,155 @@
+/* Reset et styles de base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header & Footer */
+header, footer {
+    background: #222;
+    color: white;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header a, nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover et focus liens */
+header a:hover, nav a:hover,
+header a:focus, nav a:focus {
+    color: #00aaff;
+    outline: none;
+}
+
+/* Underline animée sur les liens */
+header a::after, nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0%;
+    background: #00aaff;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+}
+header a:hover::after, nav a:hover::after,
+header a:focus::after, nav a:focus::after {
+    width: 100%;
+}
+
+/* Main content */
+main {
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Cartes d’articles */
+.card {
+    background: white;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Effet hover sur la carte */
+.card:hover, .card:focus-within {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+}
+
+/* Titres des articles */
+.card h3 a {
+    color: #222;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card h3 a:hover,
+.card h3 a:focus {
+    color: #0077cc;
+    text-decoration: underline;
+    outline: none;
+}
+
+/* Paragraphes */
+.card p {
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Pagination */
+.btn {
+    padding: 0.6rem 1.2rem;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    user-select: none;
+}
+
+/* Hover & focus sur bouton pagination */
+.btn:hover, .btn:focus {
+    background-color: #00aaff;
+    transform: scale(1.05);
+    outline: none;
+}
+
+/* Bouton actif */
+.btn[style*="background:#555"] {
+    background-color: #005f8a !important;
+    cursor: default;
+}
+
+/* Liens catégorie */
+.card small a {
+    color: #777;
+    font-style: italic;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.card small a:hover, .card small a:focus {
+    color: #00aaff;
+    outline: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    main {
+        padding: 1rem;
+    }
+    header a, nav a {
+        margin: 0 0.5rem;
+        font-size: 1rem;
+    }
+    .card h3 {
+        font-size: 1.3rem;
+    }
+}
