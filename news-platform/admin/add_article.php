@@ -3,7 +3,6 @@ require_once '../config/db.php';
 
 $page_title = "Ajouter un article";
 
-// Récupérer les catégories pour le select
 $stmt = $pdo->query("SELECT * FROM categories ORDER BY name");
 $categories = $stmt->fetchAll();
 
