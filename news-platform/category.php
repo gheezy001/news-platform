@@ -2,7 +2,6 @@
 require_once 'config/db.php';
 $id = (int)($_GET['id'] ?? 0);
 
-// Récupérer le nom de la catégorie
 $stmtCat = $pdo->prepare("SELECT name FROM categories WHERE id = ?");
 $stmtCat->execute([$id]);
 $cat = $stmtCat->fetch();
@@ -12,7 +11,6 @@ if (!$cat) {
     exit;
 }
 
-// Récupérer les articles dans la catégorie
 $stmt = $pdo->prepare("SELECT * FROM articles WHERE category_id = ? ORDER BY published_at DESC");
 $stmt->execute([$id]);
 $articles = $stmt->fetchAll();
