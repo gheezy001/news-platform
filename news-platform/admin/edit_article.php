@@ -8,7 +8,6 @@ if ($id <= 0) {
     exit;
 }
 
-// Récupérer l'article à modifier
 $stmt = $pdo->prepare("SELECT * FROM articles WHERE id = ?");
 $stmt->execute([$id]);
 $article = $stmt->fetch();
@@ -18,7 +17,6 @@ if (!$article) {
     exit;
 }
 
-// Récupérer les catégories
 $stmtCat = $pdo->query("SELECT * FROM categories ORDER BY libelle");
 $categories = $stmtCat->fetchAll();
 
@@ -32,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$contenu) $errors[] = "Le contenu est obligatoire.";
     if ($categorie <= 0) $errors[] = "La catégorie est obligatoire.";
 
-    // Gestion de l'image uploadée
     if (!empty($_FILES['image']['name'])) {
         $allowed_ext = ['jpg', 'jpeg', 'png', 'gif'];
         $file_ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
